@@ -10,14 +10,14 @@ for _ in range(n):
         if i not in keyword:
             keyword.append(i)
     del k
-    re_key = [i for i in keyword] # 'keyword' gets deleted during construction of cipher alphabet [1]
+    re_key = [i for i in keyword]
     num_key = [string.ascii_uppercase.index(i) for i in keyword]
     
     ''' Take cipher text input, build list of lists of cipher word characters '''
     pre_cipher = [str(i) for i in input().split()]
     cipher_list = []
     for i in pre_cipher:
-        cipher_list.append([str(j) for j in i]) # [2]
+        cipher_list.append([str(j) for j in i])
         
     ''' Alphabet list excluding letters present in keyword '''
     abc = []
@@ -37,7 +37,7 @@ for _ in range(n):
     abc_split.insert(0, keyword)
     
     ''' Group new sublists by indices, i.e. new sublist at index zero
-        is list of all previous subindex zeros ''' # ends up deleting 'keyword' variable [1]
+        is list of all previous subindex zeros '''
     shuffle = []
     while len(abc_split) > 0:
         while any(len(item) < 1 for item in abc_split):
@@ -62,7 +62,7 @@ for _ in range(n):
 
     ''' Convert cipher text to original text '''
     cipher = []
-    for i in cipher_list: # [2]
+    for i in cipher_list:
         cipher.append([new_alpha.index(j) for j in i])
     orig_text = []
     for i in cipher:
